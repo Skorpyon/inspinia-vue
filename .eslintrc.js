@@ -19,10 +19,10 @@ module.exports = {
   rules: {
     // allow async-await
     'generator-star-spacing': 'off',
-    "no-undef": 1,//不能有未定义变量
-    // 使用 === 替代 ==  
-    "eqeqeq": 1, 
-    "no-unused-vars":1, 
+    "no-undef": 0,//不能有未定义变量
+    // 使用 === 替代 ==
+    "eqeqeq": 0,
+    "no-unused-vars":0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
