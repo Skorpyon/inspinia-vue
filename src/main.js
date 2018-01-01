@@ -8,6 +8,7 @@ import './assets/js/inspinia'
 
 // 不现实vue 命令行的tips
 Vue.config.productionTip = false
+require('../mock/mock')
 
 /* eslint-disable no-new */
 new Vue({

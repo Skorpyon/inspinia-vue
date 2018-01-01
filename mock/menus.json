@@ -1,0 +1,35 @@
+[
+  {
+    "name": "控制台",
+    "path": "/",
+    "icon": "fa-th-large"
+  },
+  {
+    "name": "UI元素",
+    "path": "/",
+    "icon": "fa-flask",
+    "children": [{
+       "name": "按钮",
+       "path": "/aa"
+    },{
+       "name": "文章",
+       "path": "/typography",
+       "children":[{
+        "name":"三级菜单",
+        "path":"/buttons"
+       }]
+    }]
+  },
+  {
+    "name": "Form表单",
+    "path": "/",
+    "icon": "fa-edit",
+    "children": [{
+       "name": "普通表单",
+       "path": "/bb"
+    },{
+       "name": "校验表单",
+       "path": "/typography"
+    }]
+  }
+]

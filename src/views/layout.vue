@@ -1,111 +1,52 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-      <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-          <li class="nav-header">
-            <div class="dropdown profile-element">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <span class="clear">
-                  <span class="block m-t-xs">
-                    <strong class="font-bold">小明</strong>
-                  </span>
-                  <span class="text-muted text-xs block"> 管理员
-                    <b class="caret"></b>
-                  </span>
-                </span>
-              </a>
-              <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                <li>
-                  <a href="#">设置</a>
-                </li>
-              </ul>
-            </div>
-            <div class="logo-element">
-              完美
-            </div>
-          </li>
-
-          <li class="active">
-            <a href="index.html">
-              <i class="fa fa-th-large"></i>
-              <span class="nav-label">Main view</span>
-            </a>
-          </li>
-          <li>
-            <a href="minor.html">
-              <i class="fa fa-th-large"></i>
-              <span class="nav-label">Minor view</span>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </nav>
-
+    <e-sider :data="data"></e-sider>
     <div id="page-wrapper" class="gray-bg">
-      <div class="row border-bottom">
-        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-          <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
-              <i class="fa fa-bars"></i>
-            </a>
-            <form role="search" class="navbar-form-custom" method="post" action="#">
-              <div class="form-group">
-                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-              </div>
-            </form>
-          </div>
-          <ul class="nav navbar-top-links navbar-right">
-            <li>
-              <a href="#">
-                <i class="fa fa-sign-out"></i> 注销
-              </a>
-            </li>
-          </ul>
-
-        </nav>
-      </div>
+      <e-topbar></e-topbar>
       <router-view></router-view>
       <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
       <!-- <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center m-t-lg">
-                        <h1>
-                            Welcome in INSPINIA Static SeedProject
-                        </h1>
-                        <small>
-                            It is an application skeleton for a typical web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.
-                        </small>
-                    </div>
-                </div>
-            </div> -->
+          <div class="col-lg-12">
+              <div class="text-center m-t-lg">
+                  <h1>
+                      Welcome in INSPINIA Static SeedProject
+                  </h1>
+                  <small>
+                      It is an application skeleton for a typical web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.
+                  </small>
+              </div>
+            </div>
+        </div> -->
       <!-- </div> -->
-      <div class="footer">
-        <div class="pull-right">
-          10GB of
-          <strong>250GB</strong> Free.
-        </div>
-        <div>
-          <strong>Copyright</strong> Example Company &copy; 2014-2017
-        </div>
-      </div>
+      <e-footer></e-footer>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'HelloWorld',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
-      }
+import { menusApi } from '../api'
+export default {
+  name: 'layout',
+  data: () => {
+    return {
+      data: []
     }
+  },
+  components: {
+    'e-topbar': require('./layout/topbar').default,
+    'e-footer': require('./layout/footer').default,
+    'e-sider': require('./layout/sider').default
+  },
+  created () {
+    menusApi().then((resp) => {
+      console.log('res', resp)
+      console.log('this', this)
+      this.data = resp.data
+    })
   }
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

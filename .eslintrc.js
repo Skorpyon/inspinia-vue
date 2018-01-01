@@ -4,6 +4,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
+    ecmaVersion: 6,
     sourceType: 'module'
   },
   env: {
@@ -24,6 +25,7 @@ module.exports = {
     "eqeqeq": 0,
     "no-unused-vars":0,
     // allow debugger during development
+    'no-unused-expressions': 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
 }
