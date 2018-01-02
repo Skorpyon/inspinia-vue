@@ -2,18 +2,21 @@
     <div class="row border-bottom">
       <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-          <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+          <a  href="javascript:;" class="navbar-minimalize minimalize-styl-2">
             <i class="fa fa-bars"></i>
           </a>
-          <form role="search" class="navbar-form-custom" action="search_results.html">
+          <!-- <a  href="javascript:;" class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
+            <i class="fa fa-bars"></i>
+          </a> -->
+          <!-- <form role="search" class="navbar-form-custom" action="search_results.html">
             <div class="form-group">
               <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
             </div>
-          </form>
+          </form> -->
         </div>
         <ul class="nav navbar-top-links navbar-right">
           <li>
-            <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+            <span class="m-r-sm text-muted welcome-message">欢迎来到完美管理员平台</span>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -24,7 +27,7 @@
               <li>
                 <div class="dropdown-messages-box">
                   <a href="profile.html" class="pull-left">
-                    <img alt="image" class="img-circle" src="img/a7.jpg">
+                    <img alt="image" class="img-circle" src="assets/img/a7.jpg">
                   </a>
                   <div class="media-body">
                     <small class="pull-right">46h ago</small>
@@ -135,6 +138,34 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    mounted: function () {
+      $('.navbar-minimalize').on('click', function (event) {
+        event.preventDefault()
+        $('body').toggleClass('mini-navbar')
+        SmoothlyMenu()
+      })
+      function SmoothlyMenu () {
+        if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
+              // Hide menu in order to smoothly turn on when maximize menu
+          $('#side-menu').hide()
+              // For smoothly turn on menu
+          setTimeout(
+                  function () {
+                    $('#side-menu').fadeIn(400)
+                  }, 200)
+        } else if ($('body').hasClass('fixed-sidebar')) {
+          $('#side-menu').hide()
+          setTimeout(
+            function () {
+              $('#side-menu').fadeIn(400)
+            }, 100
+          )
+        } else {
+          // Remove all inline style from jquery fadeIn function to reset menu state
+          $('#side-menu').removeAttr('style')
+        }
       }
     }
   }

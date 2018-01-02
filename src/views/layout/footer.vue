@@ -1,10 +1,10 @@
 <template>
   <div class="footer">
       <div class="pull-right">
-          10GB of <strong>250GB</strong> Free.
+          让每一次通信都值得信赖，让安全创造价值
       </div>
       <div>
-          <strong>Copyright</strong> Example Company © 2014-2017
+          <strong>Copyright</strong> Eversec © 2014-2017
       </div>
   </div>
 </template>

@@ -20,6 +20,18 @@ export default new Router({
       {
         path: '/panel',
         component: require('../views/panel.vue').default
+      },
+      {
+        path: '/test',
+        component: require('../views/test.vue').default
+      },
+      {
+        path: '/dynamicForm',
+        component: require('../views/form.vue').default
+      },
+      {
+        path: '/staticForm',
+        component: require('../views/staticForm.vue').default
       }]
     }
   ]
